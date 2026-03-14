@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
   import axios from "axios"
 
   const fetchWeather = async (lat, lon) => {
-    const { data } = await axios.get("http://localhost:8000/", {
+    const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/`, {
       params: { lat, lon }
     })
     return data
