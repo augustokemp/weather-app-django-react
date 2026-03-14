@@ -32,21 +32,14 @@ function WeatherCard({ lat, lon }) {
   const { weather, location } = data
 
   return (
-    <div className="max-w-3xl mx-auto p-8 text-center">
-      <h1 className="text-2xl">{location.address?.city || location.address?.town} - {location.address?.state}</h1>
-      <div className="flex justify-center items-center">
-
-        <h1 className="text-4xl font-bold">{weather.current.temperature}°C</h1>
-
-
+    <div className="w-full max-w-3xl mx-auto px-4 md:px-8 text-center">
+      <h1 className="text-xl md:text-2xl">{location.address?.city || location.address?.town} - {location.address?.state}</h1>
+      <h1 className="text-5xl md:text-7xl font-bold my-2">{weather.current.temperature}°C</h1>
+      <div className="inline-flex gap-4 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 text-sm opacity-70 mt-1">
+        <span>Elevation: {weather.location.elevation}m</span>
+        <span>{weather.location.latitude}, {weather.location.longitude}</span>
       </div>
       <HourlyForecast forecast={weather.forecast} />
-      <div className="ml-2 mt-2 bg-white/20 backdrop-blur-lg rounded-xl px-3 py-2 text-center whitespace-nowrap">
-        <div>
-          <p className="text-sm opacity-70">Elevation: {weather.location.elevation}m</p>
-          <p className="text-sm opacity-70">{weather.location.latitude}, {weather.location.longitude}</p>
-        </div>
-      </div>
     </div>
   )
 }

@@ -22,12 +22,12 @@ function Main({ lat, lon }) {
 
   return (
     <div
-      className={`relative h-screen overflow-auto flex flex-col bg-[image:var(--bg)] bg-[length:100%_auto] bg-no-repeat ${isDay ? "text-gray-900" : "text-white"}`}
+      className={`relative h-screen overflow-auto flex flex-col bg-[image:var(--bg)] bg-[length:auto_100vh] md:bg-[length:100%_auto] bg-no-repeat bg-center md:bg-top ${isDay ? "text-gray-900" : "text-white"}`}
       style={{ "--bg": `url(${getBackgroundImage(currentHour)})` }}
     >
       <div className="absolute h-screen overflow-auto inset-0 bg-gradient-to-b from-white/50 to-white/30 pointer-events-none" />
       <Header className="relative z-10" />
-      <main className="relative z-10 flex-1 flex items-start pt-16">
+      <main className="relative z-10 flex-1 flex items-start pt-8 md:pt-16">
         <WeatherCard lat={lat} lon={lon} />
       </main>
       <Footer className="relative z-10" />
